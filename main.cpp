@@ -35,21 +35,24 @@ int main(int argc, char** argv){
     }
   
     // Create an object of a STL data-structure to store all the movies
-
+    Movie movie;
     string line, movieName;
     double movieRating;
     // Read each file and store the name and rating
     while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+
             // Use std::string movieName and double movieRating
             // to construct your Movie objects
             // cout << movieName << " has rating " << movieRating << endl;
             // insert elements into your data structure
+            movie.insert(movieName,movieRating);
     }
 
     movieFile.close();
 
     if (argc == 2){
             //print all the movies in ascending alphabetical order of movie names
+            movie.print();
             return 0;
     }
 
@@ -70,12 +73,25 @@ int main(int argc, char** argv){
     //  For each prefix,
     //  Find all movies that have that prefix and store them in an appropriate data structure
     //  If no movie with that prefix exists print the following message
-    cout << "No movies found with prefix "<<"<replace with prefix>" << endl;
-
+    vector<Movie> great;
+    vector<string> got;
+    for(int i=0; i< prefixes.size();i++){
+        bool found= movie.prefix(prefixes.at(i),great);
+        if(!found){
+             cout << "No movies found with prefix "<<prefixes.at(i) << endl;
+        }else{
+            got.push_back(prefixes.at(i));
+        }
+        cout<<endl;
+        
+    }
+    
+    for(int i =0; i < great.size(); i++){
+        cout << "Best movie with prefix " << got.at(i) << " is: " <<great.at(i).greatest().getName() << " with rating " << std::fixed << std::setprecision(1) << great.at(i).greatest().getRating() << endl;
+    }
     //  For each prefix,
     //  Print the highest rated movie with that prefix if it exists.
-    cout << "Best movie with prefix " << "<replace with prefix>" << " is: " << "replace with movie name" << " with rating " << std::fixed << std::setprecision(1) << "replace with movie rating" << endl;
-
+   
     return 0;
 }
 
