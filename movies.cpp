@@ -7,8 +7,10 @@ void Movie::insert(string movie, double rating){
     int value;
     if(isalpha(letter)){
         value = letter - 96; 
-    }
+    }else{
+
     value = 0;
+    }
     show Show(movie,rating);
     if(bucket[value].size() == 0){
         bucket[value].push_back(Show);
@@ -42,8 +44,10 @@ void Movie::insertRating(string movie, double rating){
                 int value;
                 if(isalpha(letter)){
                     value = letter - 96; 
-                }
+                }else{
                 value = 0;
+
+                }
                 if(movie.substr(0).compare((*it).getName())<=0){
                     bucket[value].insert(it,Show);
                  }else{
@@ -77,7 +81,6 @@ void Movie::printR(){
 }
 
 Movie::show Movie::greatest(){
-   cout<<bucket.size();
     for(int i = 11; i>=0; i--){
         if(!bucket.at(i).empty()){
             return ((bucket[i].back())); 
@@ -91,8 +94,9 @@ bool Movie::prefix(string value, vector<Movie>& great){
     int index = letter -97;
       if(isalpha(letter)){
         index = letter - 96; 
+    }else{
+         index = 0;
     }
-    index = 0;
     int length = value.length();
     Movie movie;
       for (auto it = bucket[index].begin(); it != bucket[index].end(); ++it) {
@@ -104,7 +108,9 @@ bool Movie::prefix(string value, vector<Movie>& great){
                 break;
             }
         } 
-    great.push_back(movie);
-     movie.printR();
+    if(found){
+        great.push_back(movie);
+         movie.printR();
+    }
      return found;
 }

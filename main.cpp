@@ -87,8 +87,7 @@ int main(int argc, char** argv){
     }
     
     for(int i =0; i < great.size(); i++){
-        great.at(i).greatest();
-        // cout << "Best movie with prefix " << got.at(i) << " is: " <<great.at(i).greatest().getName() << " with rating " << std::fixed << std::setprecision(1) << great.at(i).greatest().getRating() << endl;
+        cout << "Best movie with prefix " << got.at(i) << " is: " <<great.at(i).greatest().getName() << " with rating " << std::fixed << std::setprecision(1) << great.at(i).greatest().getRating() << endl;
     }
     //  For each prefix,
     //  Print the highest rated movie with that prefix if it exists.
