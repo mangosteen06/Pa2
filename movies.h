@@ -38,7 +38,7 @@ class Movie{
     show greatest();
     void insertRating(string movie, double rating);
     Movie(){
-        bucket.resize(26);
+        bucket.resize(28);
     }
 };
 
