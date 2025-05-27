@@ -81,7 +81,7 @@ int main(int argc, char** argv){
     for(int i=0; i< prefixes.size();i++){
         bool found= movie.prefix(prefixes.at(i),great);
         if(!found){
-             cout << "No movies found with prefix "<<prefixes.at(i) << endl;
+             cout << "No movies found with prefix "<<prefixes.at(i);
         }else{
             got.push_back(prefixes.at(i));
         }

@@ -47,7 +47,7 @@ void Movie::insertRating(string movie, double rating){
                 }else{
                 value = 0;
                 }
-                if(movie.substr(0).compare((*it).getName())<=0){
+                if(movie.substr(0).compare((*it).getName())>0){
                     bucket[value].insert(it,Show);
                  }else{
                     bucket[value].insert(next(it),Show);
