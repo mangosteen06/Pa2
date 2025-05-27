@@ -96,7 +96,6 @@ int main(int argc, char** argv){
     //  Print the highest rated movie with that prefix if it exists.
     auto end = chrono::high_resolution_clock::now();
     double time_ms = chrono::duration_cast<chrono::microseconds>(end - start).count() / 1000.0;
-    cout<<time_ms;
     return 0;
 }
 
