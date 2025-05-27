@@ -46,7 +46,6 @@ void Movie::insertRating(string movie, double rating){
                     value = letter - 96; 
                 }else{
                 value = 0;
-
                 }
                 if(movie.substr(0).compare((*it).getName())<=0){
                     bucket[value].insert(it,Show);
@@ -73,6 +72,9 @@ void Movie::print(){
 
 void Movie::printR(){
     for(int i = 10; i>-1; i--){
+        if(bucket.at(i).empty()){
+            continue;
+        }
         for (auto it = bucket[i].rbegin(); it != bucket[i].rend(); ++it) {
            (*it).print();
         } 
@@ -88,7 +90,9 @@ Movie::show Movie::greatest(){
     }
 
 }
+
 bool Movie::prefix(string value, vector<Movie>& great){
+
     bool found = false;
     char letter = value[0];
     int index = letter -97;
@@ -110,7 +114,7 @@ bool Movie::prefix(string value, vector<Movie>& great){
         } 
     if(found){
         great.push_back(movie);
-         movie.printR();
+        movie.printR();
     }
      return found;
 }
