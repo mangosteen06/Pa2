@@ -24,11 +24,7 @@ class Movie{
             cout<< name <<", "<< rating<<endl;
         } 
     };
-    struct Node {
-	int info;
-	Node *next;
-    };
-
+    
     vector<list<show>> bucket; 
  public:
     void insert(string movie,double rating);  

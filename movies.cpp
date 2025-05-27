@@ -62,7 +62,7 @@ void Movie::insertRating(string movie, double rating){
     }
 }
 void Movie::print(){
-    for(int i = 0; i< 26; i++){
+    for(int i = 0; i< 28; i++){
          for (auto it = bucket[i].begin(); it != bucket[i].end(); ++it) {
            (*it).print();
         } 
@@ -88,6 +88,7 @@ Movie::show Movie::greatest(){
             return ((bucket[i].back())); 
         }
     }
+    return bucket[0].back();
 
 }
 
