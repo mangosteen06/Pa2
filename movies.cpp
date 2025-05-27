@@ -1,5 +1,6 @@
 #include "movies.h"
 #include <iostream>
+// Serafina Wong, 5/22
 void Movie::insert(string movie, double rating){
     int i=0;
     char letter = movie[i];

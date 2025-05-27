@@ -1,6 +1,6 @@
 // Winter'24
 // Instructor: Diba Mirza
-// Student name: 
+// Student name: Serafina Wong
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -103,8 +103,8 @@ int main(int argc, char** argv){
   Time complexity: 
 Let p be all movies that either start with the same letter as the prefix and let r  be all movies that have the same prefix and have all the same ratings when floored (for example 9.7 and 9.6).  
 For part two we are finding the worst case.
-I iterate over every prefix so its O(m) and every time I do so, I call the function prefix which at most iterates over every movie that starts with the same letter until we make it to the movies that have the prefix so it at most iterates over all movies with the same letter(O(p)). Every time I do this I print the all the prefixes (O(k)) and call insertRating which iterates over all ratings in those prefix that are when floored are the same (O(r))and I insert it into the hash map which should be O(1). I also compare the two movies to see which one comes first alphabetically if they have the same rating so O(l).I also then iterate over all the prefixes again and call to find the greatest one( however this is only O(1) since the hash map would be empty up until we find the greatest rating.In total this means that I have O(m*p*k*r*l +k). 
-Actual numbers:
+I iterate over every prefix so its O(m) and every time I do so, I call the function prefix which at most iterates over every movie that starts with the same letter until we make it to the movies that have the prefix so it at most iterates over all movies with the same letter(O(p)). Every time I do this I print the all the prefixes (O(k)) and call insertRating which iterates over all ratings in those prefix that when floored are the same (O(r))and I insert it into the hash map which should be O(1). I also compare the two movies to see which one comes first alphabetically if they have the same rating so O(l).I also then iterate over all the prefixes again and call to find the greatest one( however this is only O(1) since the hash map would be empty up until we find the greatest rating).In total this means that I have O(m*p*k*r*l +k). 
+Actual numbers: (randomized sets)
 For the prefix_large: we have 2869.0 ms for the 76920.csv 310 for 1000 csv, 312 for 100 csv, and 208.9 for the 20 csv
 For prefix_medium: we have 1072.7 for the 76920.csv 5.8for 1000 csv 0.6 for 100 csv 0.3 for the 20 csv
 For prefix_small: we have 188.2 for the 76920.csv 1.1 for 1000 csv 0.1 for 100 csv 0.1  for the 20 csv
